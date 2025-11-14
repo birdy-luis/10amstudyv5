@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Execution Matrix - Decision Rules (Page 2 of 3) | TIME_AMPLITUDE v2.0</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: linear-gradient(135deg, #1a1f2e 0%, #141820 50%, #1a1f2e 100%);
+        color: #e0e8f0;
+        font-family: "Inter", "Montserrat", "Segoe UI", Arial, sans-serif;
+        line-height: 1.7;
+        padding: 40px;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+        color: #00d4ff;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        border-bottom: 3px solid #00d4ff;
+        padding-bottom: 20px;
+        text-align: center;
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+        margin-bottom: 30px;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #a0a8b0;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .version-badge {
+        text-align: center;
+        color: #4ade80;
+        font-size: 0.9rem;
+        margin-bottom: 40px;
+        font-weight: 600;
+    }
+
+    h2 {
+        margin-top: 50px;
+        font-size: 1.7rem;
+        border-left: 5px solid #00d4ff;
+        padding-left: 15px;
+        color: #00e5ff;
+        margin-bottom: 25px;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        color: #00ffff;
+    }
+
+    p, li {
+        font-size: 1.05rem;
+        color: #d0d8e0;
+        margin-bottom: 12px;
+    }
+
+    .highlight {
+        color: #4ade80;
+        font-weight: 700;
+    }
+
+    .critical-box {
+        background: linear-gradient(135deg, rgba(26, 31, 46, 0.95) 0%, rgba(20, 24, 32, 1) 100%);
+        border: 2px solid #f87171;
+        border-radius: 12px;
+        padding: 30px;
+        margin: 30px 0;
+        box-shadow: 0 0 40px rgba(248, 113, 113, 0.2);
+    }
+
+    .execution-box {
+        background: linear-gradient(135deg, rgba(26, 31, 46, 0.95) 0%, rgba(20, 24, 32, 1) 100%);
+        border: 2px solid #00d4ff;
+        border-radius: 12px;
+        padding: 30px;
+        margin: 30px 0;
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+    }
+
+    .sequence-flow {
+        background: linear-gradient(135deg, rgba(24, 30, 45, 0.9) 0%, rgba(20, 25, 38, 1) 100%);
+        border: 2px solid #00d4ff;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 25px 0;
+        box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+    }
+
+    .decision-flow {
+        background: linear-gradient(135deg, rgba(24, 30, 45, 0.9) 0%, rgba(20, 25, 38, 1) 100%);
+        border-left: 5px solid #fbbf24;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 25px 0;
+        box-shadow: 0 0 30px rgba(251, 191, 36, 0.15);
+    }
+
+    .metric-box {
+        background: linear-gradient(135deg, rgba(24, 30, 45, 0.8) 0%, rgba(20, 25, 38, 0.9) 100%);
+        border: 2px solid #00d4ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .metric-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #00ffff;
+        text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    }
+
+    .metric-label {
+        font-size: 0.9rem;
+        color: #a0a8b0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 8px;
+    }
+
+    .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 25px 0;
+    }
+
+    .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+        margin: 25px 0;
+    }
+
+    .insight-box {
+        background: linear-gradient(135deg, rgba(30, 32, 48, 0.85) 0%, rgba(24, 26, 40, 0.95) 100%);
+        border-left: 5px solid #00d4ff;
+        padding: 20px 25px;
+        margin: 20px 0;
+        border-radius: 6px;
+        box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
+    }
+
+    .insight-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #00ffff;
+        margin-bottom: 10px;
+    }
+
+    .table-container {
+        margin-top: 25px;
+        border: 1px solid #00d4ff;
+        border-radius: 10px;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(20, 25, 38, 0.7) 0%, rgba(22, 27, 40, 0.8) 100%);
+        box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        color: #e0e8f0;
+    }
+
+    thead {
+        background: linear-gradient(90deg, rgba(0, 212, 255, 0.15) 0%, rgba(0, 212, 255, 0.1) 100%);
+    }
+
+    th {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #00ffff;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        text-align: center;
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    }
+
+    td {
+        padding: 10px 8px;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    tr:hover {
+        background-color: rgba(0, 212, 255, 0.05);
+    }
+
+    .positive {
+        color: #4ade80;
+        font-weight: 600;
+    }
+
+    .elite {
+        background-color: rgba(74, 222, 128, 0.1);
+        color: #4ade80;
+        font-weight: 600;
+    }
+
+    .warning {
+        color: #fbbf24;
+        font-weight: 600;
+    }
+
+    .danger {
+        color: #f87171;
+        font-weight: 600;
+    }
+
+    .step-box {
+        background: linear-gradient(135deg, rgba(24, 30, 45, 0.8) 0%, rgba(20, 25, 38, 0.9) 100%);
+        border: 2px solid #00d4ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 15px 0;
+    }
+
+    .step-number {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        background: #00d4ff;
+        color: #141820;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 35px;
+        font-weight: 700;
+        margin-right: 10px;
+    }
+
+    .step-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #00ffff;
+        margin-bottom: 10px;
+        margin-top: -35px;
+        margin-left: 45px;
+    }
+
+    .step-content {
+        margin-left: 45px;
+        color: #d0d8e0;
+    }
+
+    ul {
+        margin-left: 25px;
+        margin-top: 15px;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    .nav-footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 60px 0 30px 0;
+    }
+
+    .nav-link {
+        background: linear-gradient(135deg, rgba(24, 30, 45, 0.9) 0%, rgba(20, 25, 38, 1) 100%);
+        border: 2px solid #00d4ff;
+        border-radius: 10px;
+        padding: 25px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+    }
+
+    .nav-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+        border-color: #00ffff;
+    }
+
+    .nav-link h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+    }
+
+    .footer {
+        text-align: center;
+        color: #6a7280;
+        font-size: 0.85rem;
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(0, 212, 255, 0.1);
+    }
+
+    .code-block {
+        background: rgba(0, 0, 0, 0.3);
+        border-left: 3px solid #00d4ff;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        color: #4ade80;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 1.8rem;
+        }
+        .grid-2, .grid-3 {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+
+<h1>⚡ Execution Matrix</h1>
+<div class="subtitle">Decision Rules, Stop Placement & Time-Based Exits</div>
+<div class="version-badge">🚀 TIME_AMPLITUDE v2.0 Enhanced | Data-Driven Rules | Page 2 of 3</div>
+
+<div class="execution-box">
+    <h3 style="margin-top: 0;">Your Trade Workflow (v2.0)</h3>
+    <p><strong>Step 1:</strong> Check Time_x_Price_Edge_Score (from Page 1)</p>
+    <p><strong>Step 2:</strong> Use Dynamic_Stop_By_Speed to place initial stop</p>
+    <p><strong>Step 3:</strong> Use Time_Predictability_Score to gauge confidence</p>
+    <p><strong>Step 4:</strong> Set exit reminder at Time_to_70_Percent_Target</p>
+    <p><strong>Step 5:</strong> Manage with Dynamic_Stop_By_Speed rules</p>
+    <p style="margin-top: 20px; font-style: italic; color: #a0a8b0;">All metrics calculated by v2.0 engine. Your job: execute the rules exactly as specified.</p>
+</div>
+
+<h2>🎯 Entry Filter: The Edge Score Decision</h2>
+
+<div class="decision-flow">
+    <p><strong>IF Time_x_Price_Edge_Score ≥ 75</strong></p>
+    <p style="margin-left: 20px; color: #4ade80;">→ ENTER (high conviction trade)</p>
+    <p style="margin-top: 15px;"><strong>ELSE IF 60 ≤ Edge Score < 75</strong></p>
+    <p style="margin-left: 20px; color: #fbbf24;">→ CONDITIONAL (only if other confirmations present)</p>
+    <p style="margin-top: 15px;"><strong>ELSE (Edge Score < 60)</strong></p>
+    <p style="margin-left: 20px; color: #f87171;">→ SKIP (low probability trade)</p>
+</div>
+
+<div class="insight-box">
+    <div class="insight-title">💡 Why Edge Score ≥ 75?</div>
+    <p>Of 222 sessions, only 27 scored ≥75 (12%). Yet these 27 represent your highest-probability trades because TIME is predictable (78.3/100) AND PRICE has strong magnitude. Testing shows this single filter would eliminate 89% of weaker trades while keeping most winners.</p>
+</div>
+
+<h2>🛑 Stop Placement: Dynamic_Stop_By_Speed</h2>
+
+<p>Initial extreme speed predicts how tight to place your stop:</p>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Speed Category</th>
+                <th>Time to Extreme</th>
+                <th>Recommended Stop</th>
+                <th>Stop Width Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="elite">TIGHT_STOP</span></td>
+                <td>FAST (≤2 min)</td>
+                <td>+20-25 pts</td>
+                <td>Quick reversal needs tight risk</td>
+            </tr>
+            <tr>
+                <td>NORMAL_STOP</td>
+                <td>NORMAL (2-5 min)</td>
+                <td>+35-45 pts</td>
+                <td>Standard reversal, standard stop</td>
+            </tr>
+            <tr>
+                <td class="warning">LOOSE_STOP</td>
+                <td>LATE (>5 min)</td>
+                <td>+55-70 pts</td>
+                <td>Slower reversal needs room</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="insight-box">
+    <div class="insight-title">🔍 Logic Behind Stops</div>
+    <p>Fast reversals (Q1) reach extreme quickly, so false reversals also stop quickly → tight stops work. Slow reversals (Q4) can grind longer → need loose stops to avoid whipsaws. <span class="highlight">This is why Dynamic_Stop_By_Speed exists: it matches stop width to reversal speed.</span></p>
+</div>
+
+<h2>📊 Time Predictability Score: Execution Confidence</h2>
+
+<p>How reliable are the TIME estimates for THIS session?</p>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Predictability Score</th>
+                <th>Meaning</th>
+                <th>Execution Strategy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="elite">≥ 85</span></td>
+                <td>Very reliable timing</td>
+                <td>Use time-based stops aggressively. Exit at Time_to_70% target confidently.</td>
+            </tr>
+            <tr>
+                <td>70 - 85</td>
+                <td>Reliable timing</td>
+                <td>Use time-based stops as guidance. Add price confirmation before exiting.</td>
+            </tr>
+            <tr>
+                <td>50 - 70</td>
+                <td>Moderate reliability</td>
+                <td>Use time as secondary signal. Rely on PRICE targets instead.</td>
+            </tr>
+            <tr>
+                <td class="danger">&lt; 50</td>
+                <td>Low reliability</td>
+                <td>Ignore TIME signals. Exit only on PRICE targets.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="metric-box">
+    <div class="metric-value">78.3</div>
+    <div class="metric-label">Mean Predictability (all 222 sessions)</div>
+    <p style="font-size: 0.9rem; color: #4ade80; margin-top: 10px;">✓ All sessions show reliable timing</p>
+</div>
+
+<div class="critical-box">
+    <h3 style="margin-top: 0; color: #f87171;">⚡ Time Predictability Discovery</h3>
+    <p>All 222 sessions have Time_Predictability_Score ≥ 70. This means <span class="highlight">timing is ALWAYS reliable enough to use time-based stops across all sessions.</span> The mean of 78.3 suggests you can confidently set exit time reminders at Time_to_70_Percent_Target for every trade.</p>
+</div>
+
+<h2>⏱️ Time-Based Exit Milestones</h2>
+
+<p>Don't just watch price. Set a TIME reminder at this milestone:</p>
+
+<div class="sequence-flow">
+    <h3 style="margin-top: 0;">Time_to_70_Percent_Target (in minutes)</h3>
+    <p>At this point in time, you expect to have hit 70% of your reversal target.</p>
+    <p style="margin-top: 15px;"><strong>Action:</strong></p>
+    <p style="margin-left: 20px;">1. Check your price</p>
+    <p style="margin-left: 20px;">2. If at 70% target → <span class="highlight">EXIT (lock in profit)</span></p>
+    <p style="margin-left: 20px;">3. If NOT at 70% target → <span class="warning">EXIT ANYWAY (something is wrong)</span></p>
+    <p style="margin-left: 20px;">4. If past 70% → <span class="positive">HOLD but trail stop</span></p>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Probe Class</th>
+                <th>Typical Time to 70%</th>
+                <th>Implication</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="elite">ELITE</span></td>
+                <td>~2.4 min</td>
+                <td>Fastest. Quick 70% hit possible.</td>
+            </tr>
+            <tr>
+                <td>GOOD</td>
+                <td>~3.3 min</td>
+                <td>Normal pace. Reliable 70% achievement.</td>
+            </tr>
+            <tr>
+                <td>STANDARD</td>
+                <td>~4.3 min</td>
+                <td>Slower. More time to reach 70%.</td>
+            </tr>
+            <tr>
+                <td class="danger">NO_PROBE</td>
+                <td>~5.5+ min</td>
+                <td>Slowest. Consider skipping altogether.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="insight-box">
+    <div class="insight-title">🎯 Exit Discipline</div>
+    <p>Setting a time reminder prevents "staring at screen" syndrome. You check at the TIME milestone. If price + time align, you exit. If they don't align, you get information (something wrong with this setup). Either way, you have a mechanical rule preventing emotional decision-making.</p>
+</div>
+
+<h2>📈 Probe Class → Position Sizing Map</h2>
+
+<p>Different probe classes deserve different position sizes. v2.0 calculates Position_Sizing_Multiplier:</p>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Probe Class</th>
+                <th>Base Multiplier</th>
+                <th>April Adjustment</th>
+                <th>Position Size Rule</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="elite">ELITE</span></td>
+                <td>2.5x</td>
+                <td>× 1.5 (April)</td>
+                <td>Your core size trade</td>
+            </tr>
+            <tr>
+                <td>GOOD</td>
+                <td>1.5x</td>
+                <td>× 1.5 (April)</td>
+                <td>Solid secondary size</td>
+            </tr>
+            <tr>
+                <td>STANDARD</td>
+                <td>0.75x</td>
+                <td>× 1.0 (April)</td>
+                <td>Reduced size for lower probability</td>
+            </tr>
+            <tr>
+                <td class="danger">NO_PROBE</td>
+                <td class="danger">0.25x or SKIP</td>
+                <td>N/A</td>
+                <td>Usually skipped (edge score too low)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="execution-box">
+    <h3 style="margin-top: 0;">Position Sizing Formula</h3>
+    <p>Actual_Size = BaseSize × Probe_Multiplier × (April_Multiplier if Is_April else 1.0)</p>
+    <p style="margin-top: 10px;"><strong>Example ELITE in April:</strong></p>
+    <p style="margin-left: 20px;">1 contract base × 2.5 (ELITE) × 1.5 (April) = <span class="highlight">3.75x position</span></p>
+</div>
+
+<h2>🔄 Complete Decision Tree: Entry to Exit</h2>
+
+<div class="step-box">
+    <span class="step-number">1</span>
+    <div class="step-title">CHECK ENTRY SIGNAL</div>
+    <div class="step-content">
+        <p><strong>Input:</strong> Time_x_Price_Edge_Score</p>
+        <p><strong>Rule:</strong> IF ≥75 → PROCEED | ELSE → SKIP</p>
+    </div>
+</div>
+
+<div class="step-box">
+    <span class="step-number">2</span>
+    <div class="step-title">DETERMINE PROBE CLASS</div>
+    <div class="step-content">
+        <p><strong>Input:</strong> Probe_Classification (ELITE/GOOD/STANDARD/NO_PROBE)</p>
+        <p><strong>Output:</strong> Position size multiplier (2.5x/1.5x/0.75x/0.25x)</p>
+    </div>
+</div>
+
+<div class="step-box">
+    <span class="step-number">3</span>
+    <div class="step-title">ADJUST FOR APRIL</div>
+    <div class="step-content">
+        <p><strong>Input:</strong> Is_April flag</p>
+        <p><strong>Action:</strong> IF Is_April → multiply position by 1.5x | ELSE → use base size</p>
+    </div>
+</div>
+
+<div class="step-box">
+    <span class="step-number">4</span>
+    <div class="step-title">PLACE INITIAL STOP</div>
+    <div class="step-content">
+        <p><strong>Input:</strong> Dynamic_Stop_By_Speed (TIGHT/NORMAL/LOOSE)</p>
+        <p><strong>Action:</strong> Place stop per recommendation (±20/±45/±65 pts)</p>
+    </div>
+</div>
+
+<div class="step-box">
+    <span class="step-number">5</span>
+    <div class="step-title">SET TIME REMINDER</div>
+    <div class="step-content">
+        <p><strong>Input:</strong> Time_to_70_Percent_Target (minutes)</p>
+        <p><strong>Action:</strong> Set alarm for this time. Will check price at this milestone.</p>
+    </div>
+</div>
+
+<div class="step-box">
+    <span class="step-number">6</span>
+    <div class="step-title">MONITOR PREDICTABILITY</div>
+    <div class="step-content">
+        <p><strong>Input:</strong> Time_Predictability_Score</p>
+        <p><strong>Action:</strong> IF ≥85 → trust time signals | IF <70 → ignore time, watch price</p>
+    </div>
+</div>
+
+<div class="step-box">
+    <span class="step-number">7</span>
+    <div class="step-title">EXIT AT TIME MILESTONE</div>
+    <div class="step-content">
+        <p><strong>At Time_to_70_Percent_Target:</strong></p>
+        <p style="margin-left: 20px;">• IF price ≥ 70% target → EXIT (profit)</p>
+        <p style="margin-left: 20px;">• IF price < 70% target → EXIT (something wrong)</p>
+        <p style="margin-left: 20px;">• IF price >> 100% target → HOLD but trail stop</p>
+    </div>
+</div>
+
+<h2>🎯 Real Example: ELITE + FAST Setup</h2>
+
+<div class="execution-box">
+    <h3 style="margin-top: 0;">Scenario: 2025-02-27 BULLISH ELITE</h3>
+    
+    <p><strong>Step 1: Check Entry</strong></p>
+    <p style="margin-left: 20px;">Edge Score = 94.4 ✓ (>> 75, ENTER)</p>
+    
+    <p style="margin-top: 15px;"><strong>Step 2: Position Size</strong></p>
+    <p style="margin-left: 20px;">Probe Class = ELITE → 2.5x multiplier</p>
+    <p style="margin-left: 20px;">Is_April = FALSE → no additional multiplier</p>
+    <p style="margin-left: 20px;">Actual: 1 contract × 2.5 = <span class="highlight">2.5 contracts</span></p>
+    
+    <p style="margin-top: 15px;"><strong>Step 3: Stop Placement</strong></p>
+    <p style="margin-left: 20px;">Initial_Extreme_Speed = FAST</p>
+    <p style="margin-left: 20px;">Dynamic_Stop_By_Speed = TIGHT_STOP</p>
+    <p style="margin-left: 20px;">Action: Place stop +22 pts from entry</p>
+    
+    <p style="margin-top: 15px;"><strong>Step 4: Time Milestone</strong></p>
+    <p style="margin-left: 20px;">Time_to_70_Percent_Target = 1.8 min</p>
+    <p style="margin-left: 20px;">Action: Set alarm for 1:48 (from entry time)</p>
+    
+    <p style="margin-top: 15px;"><strong>Step 5: At 1:48 (Time Milestone)</strong></p>
+    <p style="margin-left: 20px;">Check price: Currently at +190 pts (>> 70% target of 189 pts)</p>
+    <p style="margin-left: 20px;">Action: Could exit for profit, or trail stop</p>
+    <p style="margin-left: 20px;">Actual: Trail stop up +100 pts</p>
+    
+    <p style="margin-top: 15px;"><strong>Result: +270 pts captured</strong></p>
+    <p style="margin-left: 20px;">2.5 contracts × 270 pts = <span class="positive">+675 pt profit</span></p>
+</div>
+
+<div class="critical-box">
+    <h3 style="margin-top: 0; color: #f87171;">⚠️ April Exception</h3>
+    <p>If the 2025-02-27 example was April instead:</p>
+    <p style="margin-left: 20px;">Position Size: 2.5 × 1.5 = <span class="positive">3.75 contracts</span></p>
+    <p style="margin-left: 20px;">April_Adjusted_Expectation = 270 × 1.075 = 289 pts target</p>
+    <p style="margin-left: 20px;">Same reversal (270) would still work, but position is larger</p>
+    <p style="margin-left: 20px;">Result: 3.75 × 270 = <span class="highlight">+1,012.5 pt profit</span></p>
+</div>
+
+<h2>📍 Next: Real Examples</h2>
+
+<p>Page 3 shows actual sessions from your data, demonstrating how these rules performed in live trading:</p>
+<ul>
+    <li>April high-edge session: 2025-04-17 (Edge 86.2)</li>
+    <li>Elite high-edge session: 2025-02-27 (Edge 94.4)</li>
+    <li>Good probe session: 2025-06-02 (Edge 87.4)</li>
+    <li>Skip setup: NO_PROBE with Edge <45</li>
+</ul>
+
+<div class="nav-footer">
+    <a href="TIME_AMPLITUDE_PAGE1.html" class="nav-link">
+        <h3>← Previous: TIME × PRICE Discovery</h3>
+        <p>Edge scores, time distributions, April analysis</p>
+    </a>
+    
+    <a href="TIME_AMPLITUDE_PAGE3_ENHANCED.html" class="nav-link">
+        <h3>Next: Real Examples →</h3>
+        <p>Live trade breakdowns showing v2.0 rules in action</p>
+    </a>
+</div>
+
+<div class="footer">
+    <p>Page 2: Execution Matrix | TIME_AMPLITUDE v2.0 Enhanced | November 14, 2025</p>
+    <p>Decision rules based on 222 real sessions | Time Predictability mean: 78.3/100 | All metrics data-driven</p>
+</div>
+
+</body>
+</html>
