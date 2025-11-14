@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edge Score Mastery - Comprehensive Learning Guide | TIME_AMPLITUDE v2.0</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: linear-gradient(135deg, #0a0e1a 0%, #0d1117 50%, #0a0e1a 100%);
+        color: #e0e8f0;
+        font-family: "Inter", "Montserrat", "Segoe UI", Arial, sans-serif;
+        line-height: 1.8;
+        padding: 40px 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+        min-height: 100vh;
+    }
+    h1 {
+        font-size: 2.8rem;
+        color: #00ffff;
+        text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        margin-bottom: 10px;
+        text-align: center;
+        border-bottom: 3px solid #00d4ff;
+        padding-bottom: 20px;
+    }
+    h2 {
+        font-size: 2rem;
+        color: #00e5ff;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        border-left: 5px solid #00d4ff;
+        padding-left: 20px;
+        text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    }
+    h3 {
+        font-size: 1.5rem;
+        color: #00ffff;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    h4 {
+        font-size: 1.2rem;
+        color: #a0e7e5;
+        margin-top: 25px;
+        margin-bottom: 12px;
+    }
+    p, li {
+        font-size: 1.05rem;
+        color: #d0d8e0;
+        margin-bottom: 12px;
+        line-height: 1.8;
+    }
+    .subtitle {
+        text-align: center;
+        color: #a0a8b0;
+        font-size: 1.15rem;
+        margin-bottom: 10px;
+    }
+    .tagline {
+        text-align: center;
+        color: #4ade80;
+        font-size: 1rem;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }
+    .highlight {
+        color: #4ade80;
+        font-weight: 700;
+    }
+    .warning {
+        color: #fbbf24;
+        font-weight: 700;
+    }
+    .danger {
+        color: #f87171;
+        font-weight: 700;
+    }
+    .component-card {
+        background: linear-gradient(135deg, rgba(0, 255, 200, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+        border: 2px solid #00d4ff;
+        border-radius: 12px;
+        padding: 30px;
+        margin: 30px 0;
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+    }
+    .definition-box {
+        background: linear-gradient(135deg, rgba(96, 165, 250, 0.2) 0%, rgba(96, 165, 250, 0.1) 100%);
+        border: 2px solid #60a5fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 0 25px rgba(96, 165, 250, 0.1);
+    }
+    .example-box {
+        background: linear-gradient(135deg, rgba(30, 50, 60, 0.9) 0%, rgba(20, 35, 45, 1) 100%);
+        border: 2px solid #fbbf24;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 20px 0;
+        box-shadow: 0 0 30px rgba(251, 191, 36, 0.1);
+    }
+    .example-title {
+        color: #fbbf24;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    .real-data {
+        background: rgba(74, 222, 128, 0.1);
+        border-left: 4px solid #4ade80;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: rgba(20, 25, 38, 0.7);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    th {
+        background: linear-gradient(90deg, rgba(0, 212, 255, 0.3), transparent);
+        color: #00ffff;
+        padding: 15px;
+        text-align: left;
+        font-weight: 700;
+        border-bottom: 2px solid #00d4ff;
+    }
+    td {
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    }
+    tr:hover {
+        background: rgba(0, 212, 255, 0.05);
+    }
+    .formula-box {
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
+        border: 2px solid #a78bfa;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 25px 0;
+        font-family: "Courier New", monospace;
+        font-size: 1.1rem;
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.1);
+    }
+    .checklist {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+        border-left: 4px solid #4ade80;
+        padding: 25px;
+        margin: 20px 0;
+        border-radius: 8px;
+    }
+    .checklist-item {
+        margin: 15px 0;
+        padding: 10px;
+        background: rgba(74, 222, 128, 0.1);
+        border-radius: 6px;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(0, 212, 255, 0.2);
+        color: #a0a8b0;
+        font-size: 0.9rem;
+    }
+    ul, ol {
+        margin-left: 30px;
+    }
+    li {
+        margin-bottom: 8px;
+    }
+    .score-range {
+        background: rgba(0, 212, 255, 0.1);
+        padding: 10px 15px;
+        border-radius: 6px;
+        margin: 10px 0;
+        border-left: 3px solid #4ade80;
+    }
+    .table-container {
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    .nav-links {
+        display: flex;
+        gap: 15px;
+        margin: 30px 0;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .nav-link {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), transparent);
+        border: 1px solid #00d4ff;
+        color: #00d4ff;
+        padding: 12px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    .nav-link:hover {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(0, 212, 255, 0.2));
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+    .toc {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 200, 200, 0.05) 100%);
+        border: 2px solid #00d4ff;
+        border-radius: 10px;
+        padding: 30px;
+        margin: 30px 0;
+    }
+    .toc h3 {
+        margin-top: 0;
+    }
+    .toc a {
+        color: #00e5ff;
+        text-decoration: none;
+        display: block;
+        padding: 8px 0;
+    }
+    .toc a:hover {
+        color: #4ade80;
+    }
+    @media (max-width: 768px) {
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.5rem; }
+        padding: 20px 10px;
+    }
+</style>
+</head>
+<body>
+
+<h1>📊 EDGE SCORE MASTERY</h1>
+<p class="subtitle">Comprehensive Learning Guide</p>
+<p class="tagline">Master Each Component From Zero Knowledge</p>
+
+<div class="toc">
+    <h3>📑 Quick Navigation</h3>
+    <a href="#big-picture">The Big Picture</a>
+    <a href="#components">The Four Components</a>
+    <a href="#speed">SPEED SCORE (35% Weight)</a>
+    <a href="#probe">PROBE QUALITY SCORE (25% Weight)</a>
+    <a href="#consistency">CONSISTENCY SCORE (30% Weight)</a>
+    <a href="#efficiency">EFFICIENCY SCORE (10% Weight)</a>
+    <a href="#formula">The Formula</a>
+    <a href="#examples">Real-World Examples</a>
+    <a href="#rules">Decision Rules</a>
+    <a href="#mistakes">Common Mistakes</a>
+</div>
+
+<!-- THE BIG PICTURE SECTION -->
+<h2 id="big-picture">🎯 The Big Picture: What is Edge Score?</h2>
+
+<div class="component-card">
+    <h3>What is Edge Score?</h3>
+    <p><span class="highlight">Edge Score is a single number (0-100) that tells you how HIGH QUALITY a trade setup is BEFORE you enter.</span></p>
+    <p>It's like a <strong>confidence rating</strong> for a potential trade opportunity.</p>
+</div>
+
+<div class="definition-box">
+    <h4>Edge Score Ranges</h4>
+    <div class="score-range"><strong>0-40:</strong> Terrible setup, don't trade</div>
+    <div class="score-range"><strong>40-60:</strong> Weak setup, mostly skip</div>
+    <div class="score-range"><strong>60-75:</strong> Okay setup, trade only with extra signals</div>
+    <div class="score-range"><strong>75-85:</strong> Good setup, enter with confidence</div>
+    <div class="score-range"><strong>85-100:</strong> Excellent setup, enter aggressively</div>
+</div>
+
+<h3>Why Do We Need Edge Score?</h3>
+
+<p><strong>WITHOUT Edge Score (Most Traders):</strong></p>
+<ul>
+    <li>"Umm, it looks good"</li>
+    <li>"I have a feeling about this one"</li>
+    <li>"My gut says yes"</li>
+</ul>
+<p style="color: #f87171; font-weight: 600;">This is GUESSING. You lose money guessing.</p>
+
+<p><strong>WITH Edge Score (Professional Traders):</strong></p>
+<ul>
+    <li>"Score = 78. Check the formula."</li>
+    <li>"78 ≥ 75, so I ENTER."</li>
+    <li>"Reason: High speed + good probe + solid consistency + normal efficiency"</li>
+</ul>
+<p style="color: #4ade80; font-weight: 600;">This is CALCULATING. You make money calculating.</p>
+
+<!-- THE FOUR COMPONENTS SECTION -->
+<h2 id="components">🔧 The Four Components</h2>
+
+<p>Here are the four things you measure to calculate Edge Score. Each has its own section below with complete definitions.</p>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Weight</th>
+            <th>What It Measures</th>
+            <th>Typical Range</th>
+        </tr>
+        <tr>
+            <td><strong>SPEED SCORE</strong></td>
+            <td><span class="highlight">35%</span></td>
+            <td>Minutes to extreme</td>
+            <td>65-92</td>
+        </tr>
+        <tr>
+            <td><strong>PROBE QUALITY</strong></td>
+            <td><span class="highlight">25%</span></td>
+            <td>Amplitude classification</td>
+            <td>45-95</td>
+        </tr>
+        <tr>
+            <td><strong>CONSISTENCY SCORE</strong></td>
+            <td><span class="highlight">30%</span></td>
+            <td>Historical reliability</td>
+            <td>60-90</td>
+        </tr>
+        <tr>
+            <td><strong>EFFICIENCY SCORE</strong></td>
+            <td><span class="highlight">10%</span></td>
+            <td>Points per minute</td>
+            <td>55-88</td>
+        </tr>
+    </table>
+</div>
+
+<!-- SPEED SCORE SECTION -->
+<h2 id="speed">⚡ Component 1: SPEED SCORE (35% Weight - Most Important)</h2>
+
+<div class="definition-box">
+    <h4>Definition</h4>
+    <p><strong>Speed Score measures how FAST the market moves to the extreme.</strong></p>
+    <p>After the market opens (say, 10:00 AM), it starts moving. At some point, it reaches an extreme (highest high or lowest low) before reversing.</p>
+    <p><strong>Speed Score is:</strong> How quickly did it reach that extreme?</p>
+</div>
+
+<h3>Three Categories</h3>
+
+<!-- FAST -->
+<div class="example-box">
+    <div class="example-title">⚡ FAST (Score = 92/100)</div>
+    <p><strong>Definition:</strong> The extreme is reached in <span class="highlight">≤2 minutes</span> from open.</p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-04-04 (April - high volatility)<br>
+        Orderflow: BEARISH<br>
+        Time to extreme: <span class="highlight">0 minutes (immediate)</span><br>
+        Actual reversal: <span class="highlight">544.5 points</span><br>
+        Probe: NO_PROBE<br>
+        Speed Score: 92
+    </div>
+    <p><em>Translation:</em> Market opened and immediately shot to the low. Extreme reached instantly. Strong directional push = large reversal.</p>
+
+    <h4>Another Real Example:</h4>
+    <div class="real-data">
+        Date: 2025-03-11<br>
+        Orderflow: BEARISH<br>
+        Time to extreme: <span class="highlight">1 minute</span><br>
+        Actual reversal: <span class="highlight">349.5 points</span><br>
+        Probe: ELITE<br>
+        Speed Score: 92
+    </div>
+    <p><em>Translation:</em> Elite probe (high quality) + fast move (1 min) = 349.5 pt reversal. FAST consistently delivers.</p>
+
+    <p><strong>Why it matters:</strong> When the market moves FAST to an extreme, it signals strong directional commitment. The reversal is likely to be LARGE because all that momentum needs to turn around.</p>
+</div>
+
+<!-- NORMAL -->
+<div class="example-box">
+    <div class="example-title">📊 NORMAL (Score = 80/100)</div>
+    <p><strong>Definition:</strong> The extreme is reached in <span class="highlight">2-5 minutes</span> from open.</p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-04-09<br>
+        Orderflow: BEARISH<br>
+        Time to extreme: <span class="highlight">3 minutes</span><br>
+        Actual reversal: <span class="highlight">378.5 points</span><br>
+        Probe: ELITE<br>
+        Speed Score: 80
+    </div>
+    <p><em>Translation:</em> Took 3 minutes (middle of range). Still a solid 378 point reversal because probe is ELITE quality.</p>
+
+    <p><strong>Why it matters:</strong> NORMAL speed is... normal. It's the everyday case. Not rushing, not delayed. This typically leads to medium-to-large reversals because the momentum is present but not violent.</p>
+</div>
+
+<!-- LATE -->
+<div class="example-box">
+    <div class="example-title">🐢 LATE (Score = 65/100)</div>
+    <p><strong>Definition:</strong> The extreme is reached in <span class="highlight">>5 minutes</span> from open.</p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-04-07<br>
+        Orderflow: BEARISH<br>
+        Time to extreme: <span class="highlight">17 minutes (very late!)</span><br>
+        Actual reversal: <span class="highlight">1198.5 points (MASSIVE!)</span><br>
+        Probe: ELITE<br>
+        Speed Score: 65
+    </div>
+    <p><em>Translation:</em> Took 17 minutes to reach low (delayed), but when it reversed, it delivered 1198 points! ELITE probe quality + late speed can still produce HUGE moves.</p>
+
+    <p><strong>Why it matters:</strong> LATE speed suggests the market is not rushing. When it does reverse from a late extreme, sometimes it's VIOLENT because all that time = building pressure.</p>
+</div>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Speed</th>
+            <th>Score</th>
+            <th>Time to Extreme</th>
+            <th>Signal Strength</th>
+        </tr>
+        <tr>
+            <td><strong>FAST</strong></td>
+            <td>92</td>
+            <td>≤2 min</td>
+            <td>Strong commitment</td>
+        </tr>
+        <tr>
+            <td><strong>NORMAL</strong></td>
+            <td>80</td>
+            <td>2-5 min</td>
+            <td>Solid movement</td>
+        </tr>
+        <tr>
+            <td><strong>LATE</strong></td>
+            <td>65</td>
+            <td>>5 min</td>
+            <td>Delayed but can explode</td>
+        </tr>
+    </table>
+</div>
+
+<!-- PROBE QUALITY SECTION -->
+<h2 id="probe">🎯 Component 2: PROBE QUALITY SCORE (25% Weight)</h2>
+
+<div class="definition-box">
+    <h4>Definition</h4>
+    <p><strong>Probe Quality Score measures the AMPLITUDE of the initial move before reversal.</strong></p>
+    <p>Think of the probe as a test move. The market is "testing" in one direction before it reverses.</p>
+    <p>Bigger test = Higher quality probe = More likely the reversal will be large.</p>
+</div>
+
+<h3>Four Categories</h3>
+
+<!-- ELITE -->
+<div class="example-box">
+    <div class="example-title">👑 ELITE (Score = 95/100)</div>
+    <p><strong>Definition:</strong> The probe amplitude is <span class="highlight">50+ points</span> (large initial move).</p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-04-07<br>
+        Probe: <span class="highlight">ELITE</span><br>
+        Initial move: <span class="highlight">50+ points</span><br>
+        Actual reversal: <span class="highlight">1198.5 points</span><br>
+        Speed: LATE
+    </div>
+    <p><em>Translation:</em> ELITE probe (big test) + reversal = 1198 points! The size of the probe predicts the power of the reversal.</p>
+
+    <p><strong>Why it matters:</strong> When the initial probe is LARGE (50+ points), the traders who went the wrong way have more to lose = more forced buying/selling on reversal = larger reversal.</p>
+</div>
+
+<!-- GOOD -->
+<div class="example-box">
+    <div class="example-title">✅ GOOD (Score = 82/100)</div>
+    <p><strong>Definition:</strong> The probe amplitude is <span class="highlight">25-50 points</span> (medium initial move).</p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-04-17<br>
+        Probe: <span class="highlight">GOOD</span><br>
+        Actual reversal: <span class="highlight">226.5 points</span><br>
+        Speed: FAST<br>
+        Edge Score: 86.2
+    </div>
+    <p><em>Translation:</em> GOOD probe + FAST speed = solid 226.5 point reversal. Predictable, tradeable.</p>
+
+    <p><strong>Why it matters:</strong> GOOD probes are the most common and most tradeable. They're easier to identify and still deliver consistent results.</p>
+</div>
+
+<!-- STANDARD -->
+<div class="example-box">
+    <div class="example-title">📈 STANDARD (Score = 62/100)</div>
+    <p><strong>Definition:</strong> The probe amplitude is <span class="highlight">15-25 points</span> (smaller initial move).</p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-06-20<br>
+        Probe: <span class="highlight">STANDARD</span><br>
+        Actual reversal: <span class="highlight">230.8 points</span><br>
+        Speed: NORMAL<br>
+        Edge Score: 68.6
+    </div>
+    <p><em>Translation:</em> STANDARD probe + NORMAL speed can still deliver 230 points. Not as consistent as GOOD/ELITE, but tradeable.</p>
+</div>
+
+<!-- NO_PROBE -->
+<div class="example-box">
+    <div class="example-title">⚠️ NO_PROBE (Score = 45/100)</div>
+    <p><strong>Definition:</strong> <strong>NO initial probe/amplitude, OR the market opens already AT the extreme.</strong></p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-04-04<br>
+        Probe: <span class="highlight">NO_PROBE</span><br>
+        Actual reversal: <span class="highlight">544.5 points (HUGE!)</span><br>
+        Speed: FAST<br>
+        Edge Score: 78.2
+    </div>
+    <p><em>Translation:</em> NO_PROBE + FAST = 544.5 points! Even though NO_PROBE scores 45, it delivered the biggest reversal.</p>
+
+    <p><strong>⚠️ CRITICAL INSIGHT:</strong> NO_PROBE often delivers the LARGEST reversals but is UNPREDICTABLE. Gap opens or overnight reactions can produce 200-500+ point reversals.</p>
+</div>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Probe</th>
+            <th>Score</th>
+            <th>Amplitude</th>
+            <th>Typical Result</th>
+        </tr>
+        <tr>
+            <td><strong>ELITE</strong></td>
+            <td>95</td>
+            <td>50+ points</td>
+            <td>240+ pts average</td>
+        </tr>
+        <tr>
+            <td><strong>GOOD</strong></td>
+            <td>82</td>
+            <td>25-50 pts</td>
+            <td>125-200 pts average</td>
+        </tr>
+        <tr>
+            <td><strong>STANDARD</strong></td>
+            <td>62</td>
+            <td>15-25 pts</td>
+            <td>95-150 pts average</td>
+        </tr>
+        <tr>
+            <td><strong>NO_PROBE</strong></td>
+            <td>45</td>
+            <td>0 (gap/open)</td>
+            <td>150+ pts (unpredictable)</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CONSISTENCY SCORE SECTION -->
+<h2 id="consistency">📊 Component 3: CONSISTENCY SCORE (30% Weight)</h2>
+
+<div class="definition-box">
+    <h4>Definition</h4>
+    <p><strong>Consistency Score measures HOW RELIABLE this pattern/probe type is.</strong></p>
+    <p>Consistency is asking: "Based on HISTORICAL DATA, does this setup usually work?"</p>
+    <p>It's about <strong>pattern reliability</strong>, not about the current setup.</p>
+</div>
+
+<h3>Three Categories</h3>
+
+<!-- HIGH CONSISTENCY -->
+<div class="example-box">
+    <div class="example-title">🏆 HIGH Consistency (Score = 90/100)</div>
+    <p><strong>Definition:</strong> This setup pattern works <span class="highlight">85%+ of the time</span> historically.</p>
+    <p><strong>Meaning:</strong> When you see this pattern in the past, it reversed and hit targets 85+ times out of 100.</p>
+    <p><strong>Why it matters:</strong> HIGH consistency means the pattern is PROVEN. You have data backing you up.</p>
+</div>
+
+<!-- MEDIUM CONSISTENCY -->
+<div class="example-box">
+    <div class="example-title">✓ MEDIUM Consistency (Score = 78/100)</div>
+    <p><strong>Definition:</strong> This setup pattern works <span class="highlight">60-85%</span> of the time historically.</p>
+    <p><strong>Meaning:</strong> Sometimes works, sometimes doesn't. Solid but not bulletproof.</p>
+    <p><strong>Why it matters:</strong> MEDIUM consistency means it's worth trading, but consider extra confirmation signals.</p>
+</div>
+
+<!-- LOW CONSISTENCY -->
+<div class="example-box">
+    <div class="example-title">⚠️ LOW Consistency (Score = 60/100)</div>
+    <p><strong>Definition:</strong> This setup pattern works <span class="highlight"><60%</span> of the time historically.</p>
+    <p><strong>Meaning:</strong> It works sometimes, but it's unreliable. Coin-flip territory.</p>
+    <p><strong>Why it matters:</strong> LOW consistency means be CAUTIOUS. Only trade with extra confirmation signals.</p>
+</div>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Level</th>
+            <th>Score</th>
+            <th>Historical Win Rate</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td><strong>HIGH</strong></td>
+            <td>90</td>
+            <td>85%+</td>
+            <td>Proven pattern</td>
+        </tr>
+        <tr>
+            <td><strong>MEDIUM</strong></td>
+            <td>78</td>
+            <td>60-85%</td>
+            <td>Solid but not certain</td>
+        </tr>
+        <tr>
+            <td><strong>LOW</strong></td>
+            <td>60</td>
+            <td><60%</td>
+            <td>Risky, needs confirmation</td>
+        </tr>
+    </table>
+</div>
+
+<!-- EFFICIENCY SCORE SECTION -->
+<h2 id="efficiency">💨 Component 4: EFFICIENCY SCORE (10% Weight)</h2>
+
+<div class="definition-box">
+    <h4>Definition</h4>
+    <p><strong>Efficiency Score measures HOW FAST the reversal GENERATES POINTS.</strong></p>
+    <p>Efficiency is: <strong>Points per minute</strong> during the reversal phase.</p>
+    <p>Higher efficiency = the market is generating points quickly = more powerful reversal.</p>
+</div>
+
+<h3>Three Categories</h3>
+
+<!-- HIGH EFFICIENCY -->
+<div class="example-box">
+    <div class="example-title">🚀 HIGH Efficiency (Score = 88/100)</div>
+    <p><strong>Definition:</strong> <span class="highlight">5+ points per minute</span> during reversal.</p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-04-07<br>
+        Points per minute: <span class="highlight">52.11 pts/min</span><br>
+        Total reversal: 1198.5 points in ~23 minutes<br>
+        Probe: ELITE<br>
+        Efficiency Score: 88
+    </div>
+    <p><em>Translation:</em> This is EXTREME efficiency. Every minute, ~52 points! This is a POWER reversal.</p>
+
+    <p><strong>Why it matters:</strong> HIGH efficiency means the reversal is FAST, the market is UNIFIED, and your profits come in quickly.</p>
+</div>
+
+<!-- NORMAL EFFICIENCY -->
+<div class="example-box">
+    <div class="example-title">📊 NORMAL Efficiency (Score = 75/100)</div>
+    <p><strong>Definition:</strong> <span class="highlight">2-5 points per minute</span> during reversal.</p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-11-04<br>
+        Points per minute: <span class="highlight">4.19 pts/min</span><br>
+        Total reversal: 129.8 points<br>
+        Probe: GOOD<br>
+        Efficiency Score: 75
+    </div>
+    <p><em>Translation:</em> Average pace. Steady profits, not explosive.</p>
+
+    <p><strong>Why it matters:</strong> NORMAL efficiency is the most common. It's reliable.</p>
+</div>
+
+<!-- LOW EFFICIENCY -->
+<div class="example-box">
+    <div class="example-title">🐢 LOW Efficiency (Score = 55/100)</div>
+    <p><strong>Definition:</strong> <span class="highlight"><2 points per minute</span> during reversal.</p>
+    
+    <h4>Real Example from Your Data:</h4>
+    <div class="real-data">
+        Date: 2025-02-17<br>
+        Points per minute: <span class="highlight">0.68 pts/min</span><br>
+        Total reversal: 38.5 points<br>
+        Probe: STANDARD<br>
+        Efficiency Score: 55
+    </div>
+    <p><em>Translation:</em> Very slow. Takes forever to make a few points. Not worth the time.</p>
+
+    <p><strong>Why it matters:</strong> LOW efficiency is frustrating—you're right but waiting too long.</p>
+</div>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Level</th>
+            <th>Score</th>
+            <th>Pts/Min</th>
+            <th>Reversal Speed</th>
+        </tr>
+        <tr>
+            <td><strong>HIGH</strong></td>
+            <td>88</td>
+            <td>5+</td>
+            <td>Explosive</td>
+        </tr>
+        <tr>
+            <td><strong>NORMAL</strong></td>
+            <td>75</td>
+            <td>2-5</td>
+            <td>Steady</td>
+        </tr>
+        <tr>
+            <td><strong>LOW</strong></td>
+            <td>55</td>
+            <td><2</td>
+            <td>Slow</td>
+        </tr>
+    </table>
+</div>
+
+<!-- THE FORMULA SECTION -->
+<h2 id="formula">📐 The Formula</h2>
+
+<div class="formula-box">
+Edge Score = (SPEED × 0.35) + (PROBE × 0.25) + (CONSISTENCY × 0.30) + (EFFICIENCY × 0.10)
+</div>
+
+<h3>Why These Weights?</h3>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Weight</th>
+            <th>Why?</th>
+        </tr>
+        <tr>
+            <td><strong>SPEED</strong></td>
+            <td>35%</td>
+            <td>Most predictive of reversal size. Fast moves = large reversals.</td>
+        </tr>
+        <tr>
+            <td><strong>CONSISTENCY</strong></td>
+            <td>30%</td>
+            <td>Reliability matters. Historical proof beats theory.</td>
+        </tr>
+        <tr>
+            <td><strong>PROBE</strong></td>
+            <td>25%</td>
+            <td>Solid foundation. Quality of setup determines confidence.</td>
+        </tr>
+        <tr>
+            <td><strong>EFFICIENCY</strong></td>
+            <td>10%</td>
+            <td>Good indicator but less important than the others.</td>
+        </tr>
+        <tr>
+            <td><strong>TOTAL</strong></td>
+            <td>100%</td>
+            <td>Always balances to 100%.</td>
+        </tr>
+    </table>
+</div>
+
+<!-- REAL WORLD EXAMPLES SECTION -->
+<h2 id="examples">📚 Real-World Examples</h2>
+
+<h3>EXAMPLE 1: "The Champion" - Highest Edge Score</h3>
+
+<div class="example-box">
+    <div class="example-title">Date: 2025-02-27 | Orderflow: BULLISH</div>
+    
+    <h4>Components:</h4>
+    <p><strong>SPEED SCORE: 92</strong> (FAST - 1 minute to extreme)</p>
+    <p><strong>PROBE QUALITY SCORE: 95</strong> (ELITE)</p>
+    <p><strong>CONSISTENCY SCORE: 90</strong> (HIGH - 90%+ historical win rate)</p>
+    <p><strong>EFFICIENCY SCORE: 90</strong> (HIGH - 28.19 pts/min)</p>
+    
+    <div class="real-data">
+        <strong>Calculation:</strong><br>
+        Edge = (92 × 0.35) + (95 × 0.25) + (90 × 0.30) + (90 × 0.10)<br>
+        Edge = 32.2 + 23.75 + 27.0 + 9.0<br>
+        <span class="highlight">Edge = 91.95 (ACTUAL: 94.4)</span>
+    </div>
+
+    <p><strong>Decision:</strong> <span class="highlight">ENTER WITH MAXIMUM CONVICTION ✓✓✓</span></p>
+    <p><strong>Actual Result:</strong> <span class="highlight">+269.75 points in 22 minutes</span></p>
+    
+    <p><strong>Lesson:</strong> When all four components are HIGH (92+, 95, 90, 90), you have elite-level confidence. This is the trade to size up on.</p>
+</div>
+
+<h3>EXAMPLE 2: "April Premium" - Good + Fast Combination</h3>
+
+<div class="example-box">
+    <div class="example-title">Date: 2025-04-17 | Orderflow: BEARISH</div>
+    
+    <h4>Components:</h4>
+    <p><strong>SPEED SCORE: 88</strong> (FAST)</p>
+    <p><strong>PROBE QUALITY SCORE: 82</strong> (GOOD)</p>
+    <p><strong>CONSISTENCY SCORE: 85</strong> (HIGH)</p>
+    <p><strong>EFFICIENCY SCORE: 85</strong> (HIGH)</p>
+    <p><strong>APRIL BONUS: +1.8%</strong></p>
+    
+    <div class="real-data">
+        <strong>Calculation:</strong><br>
+        Edge = (88 × 0.35) + (82 × 0.25) + (85 × 0.30) + (85 × 0.10)<br>
+        Edge = 30.8 + 20.5 + 25.5 + 8.5<br>
+        <span class="highlight">Edge = 85.3 (ACTUAL: 86.2)</span><br>
+        With April Adjustment: 85.3 + 1.8 = 87.1
+    </div>
+
+    <p><strong>Decision:</strong> <span class="highlight">STRONG ENTER, SCALE UP ✓✓</span></p>
+    <p><strong>Position Multiplier:</strong> 1.5x (April bonus)</p>
+    <p><strong>Actual Result:</strong> <span class="highlight">+226.5 points in 38 minutes</span></p>
+    
+    <p><strong>Lesson:</strong> GOOD probes with FAST speed consistently win. April multiplier adds extra confidence. Scale up.</p>
+</div>
+
+<h3>EXAMPLE 3: "Solid Good" - Consistent Setup</h3>
+
+<div class="example-box">
+    <div class="example-title">Date: 2025-06-02 | Orderflow: BULLISH</div>
+    
+    <h4>Components:</h4>
+    <p><strong>SPEED SCORE: 88</strong> (FAST)</p>
+    <p><strong>PROBE QUALITY SCORE: 84</strong> (GOOD)</p>
+    <p><strong>CONSISTENCY SCORE: 86</strong> (HIGH)</p>
+    <p><strong>EFFICIENCY SCORE: 87</strong> (HIGH)</p>
+    
+    <div class="real-data">
+        <strong>Calculation:</strong><br>
+        Edge = (88 × 0.35) + (84 × 0.25) + (86 × 0.30) + (87 × 0.10)<br>
+        Edge = 30.8 + 21.0 + 25.8 + 8.7<br>
+        <span class="highlight">Edge = 86.3 (ACTUAL: 87.4)</span>
+    </div>
+
+    <p><strong>Decision:</strong> <span class="highlight">CONFIDENT ENTRY, NORMAL SIZE ✓✓</span></p>
+    <p><strong>Expected Result:</strong> 70% of reversal = 128.8 points</p>
+    <p><strong>Actual Result:</strong> <span class="highlight">+184 points = +45% OUTPERFORMANCE!</span></p>
+    
+    <p><strong>Lesson:</strong> When edge is 87-88, consistent execution beats expectations.</p>
+</div>
+
+<!-- DECISION RULES SECTION -->
+<h2 id="rules">⚖️ Decision Rules</h2>
+
+<h3>The Decision Framework</h3>
+
+<p>After calculating your Edge Score, follow these rules:</p>
+
+<!-- SKIP -->
+<div class="example-box">
+    <div class="example-title">❌ Rule 1: Edge < 60 = SKIP</div>
+    <p><strong>Action:</strong> Don't trade. Go to next opportunity.</p>
+    <p><strong>Why:</strong> Weak setup, low historical win rate, capital better used elsewhere.</p>
+</div>
+
+<!-- CONDITIONAL -->
+<div class="example-box">
+    <div class="example-title">⚠️ Rule 2: Edge 60-75 = CONDITIONAL</div>
+    <p><strong>Action:</strong> Can trade ONLY with extra confirmation signals.</p>
+    <p><strong>Extra Confirmation Signals (need 2+):</strong></p>
+    <ul>
+        <li>Perfect price level (support/resistance)</li>
+        <li>Volume spike</li>
+        <li>Volatility expansion</li>
+        <li>Previous resistance/support bounce</li>
+        <li>Additional timeframe alignment</li>
+    </ul>
+    <p><strong>Sizing:</strong> 0.5x (half normal size)</p>
+</div>
+
+<!-- ENTER -->
+<div class="example-box">
+    <div class="example-title">✅ Rule 3: Edge ≥ 75 = ENTER</div>
+    <p><strong>Action:</strong> Enter the trade immediately.</p>
+    <p><strong>Why:</strong> Strong setup, high historical win rate (85%+), positive risk/reward.</p>
+    
+    <h4>Sizing by Edge Score:</h4>
+    <ul>
+        <li><strong>75-80:</strong> Normal size (1.0x)</li>
+        <li><strong>80-85:</strong> Medium size (1.25x)</li>
+        <li><strong>85-90:</strong> Large size (1.5x)</li>
+        <li><strong>90+:</strong> Maximum size (2.0x)</li>
+    </ul>
+    
+    <h4>Additional Rules:</h4>
+    <p><strong>If April:</strong> Multiply position size by 1.5x</p>
+    <p><strong>If High Efficiency (>5 pts/min):</strong> Can maintain position longer</p>
+    <p><strong>If ELITE Probe:</strong> Tighter stops possible</p>
+</div>
+
+<!-- COMMON MISTAKES SECTION -->
+<h2 id="mistakes">🚨 Common Mistakes to Avoid</h2>
+
+<!-- MISTAKE 1 -->
+<div class="example-box">
+    <div class="example-title">Mistake 1: Miscalculating Speed</div>
+    <p><strong>The Error:</strong> You think a 3-minute extreme is FAST (92 score), when it's actually NORMAL (80 score).</p>
+    <div class="real-data">
+        Your calculation: Edge = 85 (using FAST 92)<br>
+        Actual should be: Edge = 78 (using NORMAL 80)<br>
+        <span class="danger">You enter 78 thinking it's 85!</span>
+    </div>
+    <p><strong>How to Prevent:</strong> Use a timer religiously. Don't estimate. Write it down.</p>
+</div>
+
+<!-- MISTAKE 2 -->
+<div class="example-box">
+    <div class="example-title">Mistake 2: Forgetting April Adjustment</div>
+    <p><strong>The Error:</strong> It's April (high volatility). You calculate edge as 78. You forget the April bonus.</p>
+    <div class="real-data">
+        Without adjustment: Position = 1.0x<br>
+        <span class="warning">With April bonus: Position = 1.5x (should be)</span><br>
+        <span class="danger">Missed opportunity: 50% less profit during best month</span>
+    </div>
+    <p><strong>How to Prevent:</strong> Check calendar FIRST before calculations. April = +1.8% edge, ×1.5x position. Make it automatic.</p>
+</div>
+
+<!-- MISTAKE 3 -->
+<div class="example-box">
+    <div class="example-title">Mistake 3: Trading Grey Zone Without Confirmation</div>
+    <p><strong>The Error:</strong> Edge = 68 (grey zone). You enter without extra signals.</p>
+    <p><strong>How to Prevent:</strong> Grey zone (60-75) = CONDITIONAL ONLY. Get 2+ extra confirmation signals OR skip and wait for edge ≥75. Discipline > Impatience.</p>
+</div>
+
+<!-- MISTAKE 4 -->
+<div class="example-box">
+    <div class="example-title">Mistake 4: Wrong Weight Calculations</div>
+    <p><strong>The Error:</strong> You use 40% for Speed instead of 35%.</p>
+    <p><strong>How to Prevent:</strong> Write weights on a post-it: <span class="highlight">35-30-25-10</span>. Keep it visible on your desk. Check every calculation.</p>
+</div>
+
+<!-- PRACTICE SECTION -->
+<h2 id="practice">🎯 Your 60-Second Pre-Trade Checklist</h2>
+
+<div class="checklist">
+    <h3>Before EVERY trade, fill this out:</h3>
+    
+    <div class="checklist-item">
+        <strong>Question 1: SPEED</strong><br>
+        What is the time from 10:00 to the extreme?<br>
+        ☐ ≤2 min = FAST (92)<br>
+        ☐ 2-5 min = NORMAL (80)<br>
+        ☐ >5 min = LATE (65)
+    </div>
+    
+    <div class="checklist-item">
+        <strong>Question 2: PROBE QUALITY</strong><br>
+        What is the amplitude of the initial move?<br>
+        ☐ 50+ points = ELITE (95)<br>
+        ☐ 25-50 points = GOOD (82)<br>
+        ☐ 15-25 points = STANDARD (62)<br>
+        ☐ 0 or gap = NO_PROBE (45)
+    </div>
+    
+    <div class="checklist-item">
+        <strong>Question 3: CONSISTENCY</strong><br>
+        Based on history, does this pattern work?<br>
+        ☐ 85%+ = HIGH (90)<br>
+        ☐ 60-85% = MEDIUM (78)<br>
+        ☐ <60% = LOW (60)
+    </div>
+    
+    <div class="checklist-item">
+        <strong>Question 4: EFFICIENCY</strong><br>
+        How many points per minute expected?<br>
+        ☐ 5+ = HIGH (88)<br>
+        ☐ 2-5 = NORMAL (75)<br>
+        ☐ <2 = LOW (55)
+    </div>
+    
+    <div class="checklist-item">
+        <strong>Question 5: APRIL?</strong><br>
+        Is it April?<br>
+        ☐ YES = +1.8%<br>
+        ☐ NO = +0%
+    </div>
+</div>
+
+<div class="formula-box">
+<strong>CALCULATE:</strong><br>
+Edge = (Speed × 0.35) + (Probe × 0.25) + (Consistency × 0.30) + (Efficiency × 0.10)<br>
+Edge = ___<br><br>
+<strong>DECIDE:</strong><br>
+☐ < 60 → SKIP<br>
+☐ 60-75 → CONDITIONAL (need extra signal)<br>
+☐ ≥ 75 → ENTER
+</div>
+
+<div class="footer">
+    <p><strong>EDGE SCORE MASTERY - COMPREHENSIVE GUIDE</strong></p>
+    <p>Master Each Component From Zero Knowledge</p>
+    <p>Version: 2.0 | Date: November 14, 2025 | Status: Complete & Ready to Learn</p>
+    <p>Next Step: EDGE MASTERY ADVANCED (coming soon) for volatility scaling & dynamic adjustments</p>
+</div>
+
+</body>
+</html>
